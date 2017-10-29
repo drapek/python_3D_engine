@@ -1,0 +1,7 @@
+# file patterns
+*.odt
+
+# directories
+.idea/
+env/
+src/scratches/
