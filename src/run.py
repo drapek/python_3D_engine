@@ -1,4 +1,4 @@
-from core import main as core_main
+from main import main
 
 if __name__ == '__main__':
-    core_main.main()
+    main()
