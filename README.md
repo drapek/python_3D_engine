@@ -11,6 +11,32 @@ wyświetlany przez monitor.
 Projekt ten został zrealizowany w ramach zajęć _Grafika komputerowa_ na wydziale 
 Elektrycznym Politechniki Warszawskiej. 
 
+### Sterowanie
+*Poruszanie się*:
+* w - przód
+* s - tył
+* a - lewo 
+* d - prawo
+* p - unoszenie się w górę
+* l - unoszenie się w dół
+
+*obroty kamery*:
+* ← - obrót kamery w lewo
+* → - obrót kamery w prawo
+* ↑ - pochylenie kamery w przód
+* ↓ - pochylenie kamery w tył
+* q - pochylenie kamery w stronę lewego ramienia
+* e - pochylenie kamery w stronę prawego ramienia
+
+*zoom*:
+* m - zoom in
+* n - zoom out
+
+### Screenshots
+![screnshot](https://raw.githubusercontent.com/drapek/python_3D_engine/tree/master/docs/screenshot_1.png)
+
+
 ### Wymagania
 * Python 3.6.3
 * PyGame 1.9.3
+* Numpy 1.13.3

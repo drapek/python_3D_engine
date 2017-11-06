@@ -1,3 +1,6 @@
+from core.camera.functions import move, rotate_x, rotate_y, rotate_z
+
+
 class Scene:
     observer_to_canvas_dist = 300
     available_objects = []
@@ -16,19 +19,19 @@ class Scene:
 
     def move_objects_on_scene(self, vector_3d):
         for scene_obj in self.available_objects:
-            scene_obj.move(vector_3d)
+            move(scene_obj, vector_3d)
 
     def rotate_x_objects_on_scene(self, angle):
         for scene_obj in self.available_objects:
-            scene_obj.rotate_x(angle)
+            rotate_x(scene_obj, angle)
 
     def rotate_y_objects_on_scene(self, angle):
         for scene_obj in self.available_objects:
-            scene_obj.rotate_y(angle)
+            rotate_y(scene_obj, angle)
 
     def rotate_z_objects_on_scene(self, angle):
         for scene_obj in self.available_objects:
-            scene_obj.rotate_z(angle)
+            rotate_z(scene_obj, angle)
 
     def change_camera_zoom(self, step):
         self.observer_to_canvas_dist += step

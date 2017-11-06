@@ -3,7 +3,7 @@ import sys
 from . import settings
 
 
-def movement_controller(scene):
+def keyboard_controller(scene):
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -11,7 +11,7 @@ def movement_controller(scene):
 
     pressed = pygame.key.get_pressed()
 
-    # This is moving
+    # moving on scene
     if pressed[pygame.K_w]:
         scene.move_objects_on_scene([0, 0, -settings.move_step])
 
@@ -31,7 +31,7 @@ def movement_controller(scene):
     if pressed[pygame.K_l]:
         scene.move_objects_on_scene([0, settings.move_step, 0])
 
-    # This is rotating
+    # scene rotating
     if pressed[pygame.K_UP]:
         scene.rotate_x_objects_on_scene(-settings.camera_tilt_angle)
 

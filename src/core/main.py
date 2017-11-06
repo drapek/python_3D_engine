@@ -1,7 +1,7 @@
 import pygame
 
 from core import settings
-from core.controller import movement_controller
+from core.controller import keyboard_controller
 from core.scenes.scene import Scene
 from core.scenes.objects.cuboid import Cuboid
 
@@ -12,7 +12,7 @@ def main():
     scene = build_scene()
 
     while 1:
-        movement_controller(scene)  # transform objects position in scene coordinate system
+        keyboard_controller(scene)  # transform objects position in scene coordinate system
         screen.fill((255, 255, 255))
         scene.draw_scene_in_2d(screen)  # Translate scene coordinates to camera coordinates, and project it
         pygame.display.flip()
