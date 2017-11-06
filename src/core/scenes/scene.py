@@ -1,5 +1,5 @@
 class Scene:
-    observer_to_canvas_dist = 400
+    observer_to_canvas_dist = 300
     available_objects = []
 
     def add_object(self, object_to_add):

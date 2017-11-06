@@ -2,7 +2,7 @@ import pygame
 import numpy as np
 import math
 
-from core.camera.functions import project_3d_point_to_2d, point_2d_to_pixel_position, center_world_origin
+from core.camera.functions import project_3d_point_to_2d
 from core import settings
 
 
@@ -47,12 +47,6 @@ class Cuboid:
         for edge in self.edges:
             line_from = project_3d_point_to_2d(self.nodes[edge[0]], observer_distance)
             line_to = project_3d_point_to_2d(self.nodes[edge[1]], observer_distance)
-            # Flip the y coordinates, to not have upside down image
-            line_from = point_2d_to_pixel_position(line_from)
-            line_to = point_2d_to_pixel_position(line_to)
-            # # center the world origin
-            # line_from = center_world_origin(line_from)
-            # line_to = center_world_origin(line_to)
             pygame.draw.line(screen, settings.line_color, line_from, line_to, settings.line_thickness)
 
     def move(self, vector_3d):

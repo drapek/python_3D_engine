@@ -22,9 +22,9 @@ def main():
 def build_scene():
 
     scene = Scene()
-    tower_1 = Cuboid(100, 300, 100, start_point=[100, 0, 150])
-    tower_2 = Cuboid(110, 0, 300, start_point=[280, 0, 150])
-    tower_3 = Cuboid(100, 200, 200, start_point=[500, 0, 250])
+    tower_1 = Cuboid(100, 300, 100, start_point=[-200, -50, 150])
+    tower_2 = Cuboid(200, 0, 300, start_point=[-100, -50, 150])
+    tower_3 = Cuboid(100, 200, 200, start_point=[100, -50, 250])
 
     scene.add_object(tower_1)
     scene.add_object(tower_2)
