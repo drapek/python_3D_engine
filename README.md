@@ -17,8 +17,8 @@ Elektrycznym Politechniki Warszawskiej.
 * s - tył
 * a - lewo 
 * d - prawo
-* p - unoszenie się w górę
-* l - unoszenie się w dół
+* p - ruch w górę (unoszenie się)
+* l - ruch w dół (opadanie)
 
 *obroty kamery*:
 * ← - obrót kamery w lewo
