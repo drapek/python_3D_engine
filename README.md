@@ -17,8 +17,8 @@ Elektrycznym Politechniki Warszawskiej.
 * s - tył
 * a - lewo 
 * d - prawo
-* p - unoszenie się w górę
-* l - unoszenie się w dół
+* p - ruch w górę (unoszenie się)
+* l - ruch w dół (opadanie)
 
 *obroty kamery*:
 * ← - obrót kamery w lewo
@@ -33,7 +33,7 @@ Elektrycznym Politechniki Warszawskiej.
 * n - zoom out
 
 ### Screenshots
-![screnshot](https://raw.githubusercontent.com/drapek/python_3D_engine/tree/master/docs/screenshot_1.png)
+![screnshot](https://github.com/drapek/python_3D_engine/blob/master/docs/screenshot_1.png?raw=true)
 
 
 ### Wymagania
