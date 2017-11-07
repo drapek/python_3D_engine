@@ -41,10 +41,10 @@ def keyboard_controller(scene):
         scene.rotate_x_objects_on_scene(settings.camera_tilt_angle)
 
     if pressed[pygame.K_LEFT]:
-        scene.rotate_y_objects_on_scene(-settings.camera_tilt_angle)
+        scene.rotate_y_objects_on_scene(settings.camera_tilt_angle)
 
     if pressed[pygame.K_RIGHT]:
-        scene.rotate_y_objects_on_scene(settings.camera_tilt_angle)
+        scene.rotate_y_objects_on_scene(-settings.camera_tilt_angle)
 
     if pressed[pygame.K_q]:
         scene.rotate_z_objects_on_scene(-settings.camera_tilt_angle)
