@@ -13,10 +13,10 @@ def main():
 
     while 1:
         keyboard_controller(scene)  # transform objects position in scene coordinate system
-        screen.fill((255, 255, 255))
+        screen.fill(settings.background_color)
         scene.draw_scene_in_2d(screen)  # Translate scene coordinates to camera coordinates, and project it
         pygame.display.flip()
-        pygame.time.wait(50)  # give the CPU to the other programs too! :)
+        pygame.time.wait(20)  # give the CPU to the other programs too! :)
 
 
 def build_scene():

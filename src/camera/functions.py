@@ -53,5 +53,6 @@ def rotate_z(obj, angle):
 
 
 def multiply_object_by_matrix(obj, matrix):
-    for i, point in enumerate(obj.nodes):
-        obj.nodes[i] = np.matmul(matrix, point)
+    for object_sub_triangle in obj.child_triangles:
+        for i, point in enumerate(object_sub_triangle.nodes):
+            object_sub_triangle.nodes[i] = np.matmul(matrix, point)
