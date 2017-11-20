@@ -11,6 +11,12 @@ wyświetlany przez monitor.
 Projekt ten został zrealizowany w ramach zajęć _Grafika komputerowa_ na wydziale 
 Elektrycznym Politechniki Warszawskiej. 
 
+## Instalacja
+```bash
+pip install -r requirements.txt
+python src/main.py
+```
+
 ### Sterowanie
 *Poruszanie się*:
 * w - przód

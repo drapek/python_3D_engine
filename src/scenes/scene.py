@@ -1,5 +1,3 @@
-import numpy as np
-
 import settings
 from camera.functions import move, rotate_x, rotate_y, rotate_z
 

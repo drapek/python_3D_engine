@@ -47,7 +47,7 @@ class Triangle:
         longest_line_edges = triangle.edges[longest_line_index]
         line_central_point = count_line_central_point(triangle.nodes[longest_line_edges[0]],
                                                       triangle.nodes[longest_line_edges[1]])
-        # Now create two sub-triangles
+        # Create two sub-triangles
         new_small_triangles = []
         for i, edge in enumerate(triangle.edges):
             if i == longest_line_index:

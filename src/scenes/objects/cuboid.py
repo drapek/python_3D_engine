@@ -1,7 +1,3 @@
-import pygame
-
-from camera.functions import project_3d_point_to_2d
-import settings
 from scenes.objects.triangle import Triangle
 
 
