@@ -16,7 +16,7 @@ class Cuboid:
     child_triangles = None
     cubic_nodes = None
 
-    def __init__(self, width, deep, height, start_point=None):
+    def __init__(self, width, deep, height, start_point=None, color=(255, 105, 180)):
         """
         4 dimensions because it is normal coordinate system
         :param width:
@@ -42,23 +42,23 @@ class Cuboid:
 
         # create the sub triangles for each cubic wall
         self.child_triangles = []
-        self.child_triangles.append(Triangle(self.cubic_nodes[0], self.cubic_nodes[4], self.cubic_nodes[5]))
-        self.child_triangles.append(Triangle(self.cubic_nodes[0], self.cubic_nodes[1], self.cubic_nodes[5]))
+        self.child_triangles.append(Triangle(self.cubic_nodes[0], self.cubic_nodes[4], self.cubic_nodes[5], color=color))
+        self.child_triangles.append(Triangle(self.cubic_nodes[0], self.cubic_nodes[1], self.cubic_nodes[5], color=color))
 
-        self.child_triangles.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[5], self.cubic_nodes[6]))
-        self.child_triangles.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[2], self.cubic_nodes[6]))
+        self.child_triangles.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[5], self.cubic_nodes[6], color=color))
+        self.child_triangles.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[2], self.cubic_nodes[6], color=color))
 
-        self.child_triangles.append(Triangle(self.cubic_nodes[2], self.cubic_nodes[6], self.cubic_nodes[7]))
-        self.child_triangles.append(Triangle(self.cubic_nodes[2], self.cubic_nodes[3], self.cubic_nodes[7]))
+        self.child_triangles.append(Triangle(self.cubic_nodes[2], self.cubic_nodes[6], self.cubic_nodes[7], color=color))
+        self.child_triangles.append(Triangle(self.cubic_nodes[2], self.cubic_nodes[3], self.cubic_nodes[7], color=color))
 
-        self.child_triangles.append(Triangle(self.cubic_nodes[3], self.cubic_nodes[7], self.cubic_nodes[4]))
-        self.child_triangles.append(Triangle(self.cubic_nodes[3], self.cubic_nodes[0], self.cubic_nodes[4]))
+        self.child_triangles.append(Triangle(self.cubic_nodes[3], self.cubic_nodes[7], self.cubic_nodes[4], color=color))
+        self.child_triangles.append(Triangle(self.cubic_nodes[3], self.cubic_nodes[0], self.cubic_nodes[4], color=color))
 
-        self.child_triangles.append(Triangle(self.cubic_nodes[4], self.cubic_nodes[5], self.cubic_nodes[6]))
-        self.child_triangles.append(Triangle(self.cubic_nodes[4], self.cubic_nodes[7], self.cubic_nodes[6]))
+        self.child_triangles.append(Triangle(self.cubic_nodes[4], self.cubic_nodes[5], self.cubic_nodes[6], color=color))
+        self.child_triangles.append(Triangle(self.cubic_nodes[4], self.cubic_nodes[7], self.cubic_nodes[6], color=color))
 
-        self.child_triangles.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[0], self.cubic_nodes[3]))
-        self.child_triangles.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[2], self.cubic_nodes[3]))
+        self.child_triangles.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[0], self.cubic_nodes[3], color=color))
+        self.child_triangles.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[2], self.cubic_nodes[3], color=color))
 
         self._divide_sub_triangles(number_of_times=4)
 
@@ -66,7 +66,7 @@ class Cuboid:
         for i in range(number_of_times):
             new_child_triangles = []
             for sub_triangle in self.child_triangles:
-                new_triangles = Triangle.divide(sub_triangle)
+                new_triangles = Triangle.divide(sub_triangle, color=sub_triangle.color)
                 new_child_triangles.append(new_triangles[0])
                 new_child_triangles.append(new_triangles[1])
             self.child_triangles = new_child_triangles

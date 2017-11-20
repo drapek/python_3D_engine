@@ -8,10 +8,10 @@ from scenes.objects.functions import count_line_length, count_line_central_point
 class Triangle:
     nodes = None
     edges = [(0, 1), (1, 2), (2, 0)]
-    color = (0, 0, 0)
+    color = None
     edges_color = (0, 0, 0)
 
-    def __init__(self, *points, color=(255, 105, 180)):
+    def __init__(self, *points, color=(0, 0, 0)):
         self.color = color
         self.nodes = []
         if len(points) < 3:
@@ -29,7 +29,7 @@ class Triangle:
             pygame.draw.polygon(screen, self.edges_color, triangle_points, 1)
 
     @staticmethod
-    def divide(triangle):
+    def divide(triangle, color):
         max_length = 0
         longest_line_index = 0
         for i, edge in enumerate(triangle.edges):
@@ -45,7 +45,8 @@ class Triangle:
         for i, edge in enumerate(triangle.edges):
             if i == longest_line_index:
                 continue
-            new_small_triangles.append(Triangle(triangle.nodes[edge[0]], triangle.nodes[edge[1]], line_central_point))
+            new_small_triangles.append(Triangle(triangle.nodes[edge[0]], triangle.nodes[edge[1]], line_central_point,
+                                                color=color))
         return new_small_triangles
 
 
