@@ -1,3 +1,5 @@
+import numpy as np
+
 import settings
 from camera.functions import move, rotate_x, rotate_y, rotate_z
 
@@ -17,8 +19,8 @@ class Scene:
         project it to 2D image.
         :return:
         """
-        # TODO @Adam: In self.available_basic_triangles you will find all triangles - sort them! :)
-        # TODO sort the triangles using central point z coordinate
+        # sort the triangles by it's 'z' coordinate in descending order
+        self.available_basic_triangles.sort(key=lambda x: sum(x.get_z_cords())/3, reverse=True)
         for triangle in self.available_basic_triangles:
             triangle.draw(screen, self.observer_to_canvas_dist, show_edges=settings.sub_triangs_lines_visible)
 

@@ -38,7 +38,9 @@ Elektrycznym Politechniki Warszawskiej.
 
 ### Screenshots
 ![screnshot](https://github.com/drapek/python_3D_engine/blob/master/docs/screenshot_1.png?raw=true)
-
+![screnshot](https://github.com/drapek/python_3D_engine/blob/master/docs/screenshot_2.png?raw=true)
+![screnshot](https://github.com/drapek/python_3D_engine/blob/master/docs/screenshot_3.png?raw=true)
+![screnshot](https://github.com/drapek/python_3D_engine/blob/master/docs/screenshot_4.png?raw=true)
 
 ### Wymagania
 * Python 3.6.3

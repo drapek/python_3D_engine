@@ -28,6 +28,13 @@ class Triangle:
         if show_edges:
             pygame.draw.polygon(screen, self.edges_color, triangle_points, 1)
 
+    def get_z_cords(self):
+        """
+        This function will return Z coordinates of each triangle point
+        :return:
+        """
+        return [node[2] for node in self.nodes]
+
     @staticmethod
     def divide(triangle, color):
         max_length = 0
