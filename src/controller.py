@@ -59,3 +59,7 @@ def keyboard_controller(scene):
     if pressed[pygame.K_n]:
         scene.change_camera_zoom(-settings.camera_zoom_step)
 
+    # Show / Hide the triangular boundary lines
+    if pressed[pygame.K_o]:
+        settings.sub_triangs_lines_visible = not settings.sub_triangs_lines_visible
+

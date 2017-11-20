@@ -32,6 +32,10 @@ Elektrycznym Politechniki Warszawskiej.
 * m - zoom in
 * n - zoom out
 
+*dodatkowe*
+* o - pokaż krawędzie pod-trójkątów tworzacych strukturę obiektu
+
+
 ### Screenshots
 ![screnshot](https://github.com/drapek/python_3D_engine/blob/master/docs/screenshot_1.png?raw=true)
 

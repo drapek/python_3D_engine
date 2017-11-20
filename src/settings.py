@@ -5,3 +5,5 @@ background_color = (255, 255, 255)
 move_step = 30
 camera_tilt_angle = 0.05
 camera_zoom_step = 20
+sub_triangs_lines_visible = False
+

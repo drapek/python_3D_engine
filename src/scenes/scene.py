@@ -1,3 +1,4 @@
+import settings
 from camera.functions import move, rotate_x, rotate_y, rotate_z
 
 
@@ -19,7 +20,7 @@ class Scene:
         # TODO @Adam: In self.available_basic_triangles you will find all triangles - sort them! :)
         # TODO sort the triangles using central point z coordinate
         for triangle in self.available_basic_triangles:
-            triangle.draw(screen, self.observer_to_canvas_dist)
+            triangle.draw(screen, self.observer_to_canvas_dist, show_edges=settings.sub_triangs_lines_visible)
 
     def move_objects_on_scene(self, vector_3d):
         for scene_obj in self.available_objects:
