@@ -15,8 +15,6 @@ class Cuboid:
     """
     child_triangles = None
     cubic_nodes = None
-    # edges = [(0, 1), (1, 2), (2, 3), (3, 0), (4, 5), (5, 6),
-    #          (6, 7), (7, 4), (0, 4), (1, 5), (2, 6), (3, 7)]
 
     def __init__(self, width, deep, height, start_point=None):
         """
@@ -62,16 +60,9 @@ class Cuboid:
         self.child_triangles.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[0], self.cubic_nodes[3]))
         self.child_triangles.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[2], self.cubic_nodes[3]))
 
-        self.divide_sub_triangles(number_of_times=4)
+        self._divide_sub_triangles(number_of_times=4)
 
-    def draw_on_screen(self, screen, observer_distance):
-        for sub_triangle in self.child_triangles:
-            for edge in sub_triangle.edges:
-                line_from = project_3d_point_to_2d(sub_triangle.nodes[edge[0]], observer_distance)
-                line_to = project_3d_point_to_2d(sub_triangle.nodes[edge[1]], observer_distance)
-                pygame.draw.line(screen, settings.line_color, line_from, line_to, settings.line_thickness)
-
-    def divide_sub_triangles(self, number_of_times=1):
+    def _divide_sub_triangles(self, number_of_times=1):
         for i in range(number_of_times):
             new_child_triangles = []
             for sub_triangle in self.child_triangles:
@@ -79,3 +70,5 @@ class Cuboid:
                 new_child_triangles.append(new_triangles[0])
                 new_child_triangles.append(new_triangles[1])
             self.child_triangles = new_child_triangles
+
+

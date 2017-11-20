@@ -1,3 +1,6 @@
+import pygame
+
+from camera.functions import project_3d_point_to_2d
 from exceptions import ToFewPointsError, ToFewCoordinatesError
 from scenes.objects.functions import count_line_length, count_line_central_point
 
@@ -5,8 +8,11 @@ from scenes.objects.functions import count_line_length, count_line_central_point
 class Triangle:
     nodes = None
     edges = [(0, 1), (1, 2), (2, 0)]
+    color = (0, 0, 0)
+    edges_color = (0, 0, 0)
 
-    def __init__(self, *points):
+    def __init__(self, *points, color=(255, 105, 180)):
+        self.color = color
         self.nodes = []
         if len(points) < 3:
             raise ToFewPointsError('Triangle need 3 points!')
@@ -16,9 +22,14 @@ class Triangle:
                 raise ToFewCoordinatesError('This is 3d projection - the minimum number of coordinates is 3.')
             self.nodes.append(point)
 
+    def draw(self, screen, observer_distance, show_edges=True):
+        triangle_points = [project_3d_point_to_2d(point, observer_distance) for point in self.nodes]
+        pygame.draw.polygon(screen, self.color, triangle_points)
+        if show_edges:
+            pygame.draw.polygon(screen, self.edges_color, triangle_points, 1)
+
     @staticmethod
     def divide(triangle):
-        # TODO find the longest line
         max_length = 0
         longest_line_index = 0
         for i, edge in enumerate(triangle.edges):
