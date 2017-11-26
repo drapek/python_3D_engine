@@ -20,8 +20,8 @@ class Polygon:
             pygame.draw.polygon(screen, self.color, polygon_points)
             if show_edges:
                 pygame.draw.polygon(screen, self.edges_color, polygon_points, 1)
-        except:
-            pass
+        except Exception as e:
+            print("[Warring] Polygon can't we draw. Error body: ", e)
 
     def get_z_cords(self):
         """

@@ -40,19 +40,17 @@ class Spheroid:
             num_nodes = len(node_list)
             if all((node < len(self.nodes) for node in node_list)):
                 polygon_nodes = [self.nodes[node] for node in node_list]
-                # self.child_polygons.append(Polygon(polygon_nodes, color=color)) TODO uncomment! very important
+                self.child_polygons.append(Polygon(polygon_nodes, color=color))
                 self.edges = [(node_list[n - 1], node_list[n]) for n in range(num_nodes)]
 
-        # TODO edit below code to be polygon objects
         # Add poles and triangular faces around poles
-        self.nodes += [(start_point[0], start_point[1] + ry , start_point[2], 1),
-                       (start_point[0], start_point[1] - ry, start_point[2], 1)]
-        sphere_cup_nodes = [(n, (n + 1) % resolution, num_nodes + 1) for n in range(resolution)]
-        start_node = num_nodes - resolution
-        # sphere_cup_nodes += [(num_nodes, start_node + (n + 1) % resolution, start_node + n)
-                             # for n in range(resolution)]
+        self.nodes += [(start_point[0], start_point[1] + ry, start_point[2], start_point[3]),
+                       (start_point[0], start_point[1] - ry, start_point[2], start_point[3])]
+        sphere_cup_nodes = [(n, (n + 1) % resolution, len(self.nodes) - 1) for n in range(resolution)]
+        start_node = len(self.nodes) - resolution - 2  # because we already add 2 points to the end of the nodes list
+        sphere_cup_nodes += [(len(self.nodes) - 2, start_node + (n + 1) % resolution, start_node + n)
+                             for n in range(resolution)]
 
         for node_list in sphere_cup_nodes:
-            nodes_coords = [self.nodes[node] for node in node_list]
-            print(nodes_coords) # TODO debug only!!!
-            self.child_polygons.append(Polygon(nodes_coords, color=color))
+            nodes_cords = [self.nodes[node] for node in node_list]
+            self.child_polygons.append(Polygon(nodes_cords, color=color))

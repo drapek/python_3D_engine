@@ -1,4 +1,5 @@
-from scenes.objects.triangle import Triangle
+from scenes.objects.basic_polygon import Polygon
+from scenes.objects.functions import divide_triangle
 
 
 class Cuboid:
@@ -38,23 +39,23 @@ class Cuboid:
 
         # create the sub triangles for each cubic wall
         self.child_polygons = []
-        self.child_polygons.append(Triangle(self.cubic_nodes[0], self.cubic_nodes[4], self.cubic_nodes[5], color=color))
-        self.child_polygons.append(Triangle(self.cubic_nodes[0], self.cubic_nodes[1], self.cubic_nodes[5], color=color))
+        self.child_polygons.append(Polygon([self.cubic_nodes[0], self.cubic_nodes[4], self.cubic_nodes[5]], color=color))
+        self.child_polygons.append(Polygon([self.cubic_nodes[0], self.cubic_nodes[1], self.cubic_nodes[5]], color=color))
 
-        self.child_polygons.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[5], self.cubic_nodes[6], color=color))
-        self.child_polygons.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[2], self.cubic_nodes[6], color=color))
+        self.child_polygons.append(Polygon([self.cubic_nodes[1], self.cubic_nodes[5], self.cubic_nodes[6]], color=color))
+        self.child_polygons.append(Polygon([self.cubic_nodes[1], self.cubic_nodes[2], self.cubic_nodes[6]], color=color))
 
-        self.child_polygons.append(Triangle(self.cubic_nodes[2], self.cubic_nodes[6], self.cubic_nodes[7], color=color))
-        self.child_polygons.append(Triangle(self.cubic_nodes[2], self.cubic_nodes[3], self.cubic_nodes[7], color=color))
+        self.child_polygons.append(Polygon([self.cubic_nodes[2], self.cubic_nodes[6], self.cubic_nodes[7]], color=color))
+        self.child_polygons.append(Polygon([self.cubic_nodes[2], self.cubic_nodes[3], self.cubic_nodes[7]], color=color))
 
-        self.child_polygons.append(Triangle(self.cubic_nodes[3], self.cubic_nodes[7], self.cubic_nodes[4], color=color))
-        self.child_polygons.append(Triangle(self.cubic_nodes[3], self.cubic_nodes[0], self.cubic_nodes[4], color=color))
+        self.child_polygons.append(Polygon([self.cubic_nodes[3], self.cubic_nodes[7], self.cubic_nodes[4]], color=color))
+        self.child_polygons.append(Polygon([self.cubic_nodes[3], self.cubic_nodes[0], self.cubic_nodes[4]], color=color))
 
-        self.child_polygons.append(Triangle(self.cubic_nodes[4], self.cubic_nodes[5], self.cubic_nodes[6], color=color))
-        self.child_polygons.append(Triangle(self.cubic_nodes[4], self.cubic_nodes[7], self.cubic_nodes[6], color=color))
+        self.child_polygons.append(Polygon([self.cubic_nodes[4], self.cubic_nodes[5], self.cubic_nodes[6]], color=color))
+        self.child_polygons.append(Polygon([self.cubic_nodes[4], self.cubic_nodes[7], self.cubic_nodes[6]], color=color))
 
-        self.child_polygons.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[0], self.cubic_nodes[3], color=color))
-        self.child_polygons.append(Triangle(self.cubic_nodes[1], self.cubic_nodes[2], self.cubic_nodes[3], color=color))
+        self.child_polygons.append(Polygon([self.cubic_nodes[1], self.cubic_nodes[0], self.cubic_nodes[3]], color=color))
+        self.child_polygons.append(Polygon([self.cubic_nodes[1], self.cubic_nodes[2], self.cubic_nodes[3]], color=color))
 
         self._divide_sub_triangles(number_of_times=4)
 
@@ -62,7 +63,7 @@ class Cuboid:
         for i in range(number_of_times):
             new_child_triangles = []
             for sub_triangle in self.child_polygons:
-                new_triangles = Triangle.divide(sub_triangle, color=sub_triangle.color)
+                new_triangles = divide_triangle(sub_triangle, color=sub_triangle.color)
                 new_child_triangles.append(new_triangles[0])
                 new_child_triangles.append(new_triangles[1])
             self.child_polygons = new_child_triangles
