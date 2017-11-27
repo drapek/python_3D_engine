@@ -47,6 +47,8 @@ python src/main.py
 ![screnshot](https://github.com/drapek/python_3D_engine/blob/master/docs/screenshot_2.png?raw=true)
 ![screnshot](https://github.com/drapek/python_3D_engine/blob/master/docs/screenshot_3.png?raw=true)
 ![screnshot](https://github.com/drapek/python_3D_engine/blob/master/docs/screenshot_4.png?raw=true)
+![screnshot](https://github.com/drapek/python_3D_engine/blob/master/docs/screenshot_5.png?raw=true)
+![screnshot](https://github.com/drapek/python_3D_engine/blob/master/docs/screenshot_6.png?raw=true)
 
 ### Wymagania
 * Python 3.6.3
