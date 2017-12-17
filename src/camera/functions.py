@@ -54,6 +54,24 @@ def rotate_z(obj, angle):
     multiply_object_by_matrix(obj, rotate_matrix)
 
 
+def rotate_one_point_x(point, angle):
+    rotate_matrix = [[1, 0, 0, 0],
+                     [0, math.cos(angle), -math.sin(angle), 0],
+                     [0, math.sin(angle), math.cos(angle), 0],
+                     [0, 0, 0, 1]]
+    return np.matmul(rotate_matrix, point)
+
+
+def rotate_one_point_y(point, angle):
+    if len(point) < 4:
+        point.append(1)
+    rotate_matrix = [[math.cos(angle), 0, math.sin(angle), 0],
+                     [0, 1, 0, 0],
+                     [-math.sin(angle), 0, math.cos(angle), 0],
+                     [0, 0, 0, 1]]
+    return np.matmul(rotate_matrix, point)[:3]
+
+
 def multiply_object_by_matrix(obj, matrix):
     for object_sub_triangle in obj.child_polygons:
         for i, point in enumerate(object_sub_triangle.nodes):

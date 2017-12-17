@@ -14,18 +14,21 @@ class Polygon:
         for point in points:
             self.nodes.append(point)
 
-    def draw(self, screen, observer_distance, show_edges=True):
+    def draw(self, screen, observer_distance, light_source, show_edges=True):
         try:
             polygon_points = [project_3d_point_to_2d(point, observer_distance) for point in self.nodes]
-            pygame.draw.polygon(screen, self.color, polygon_points)
+            color_with_shading = light_source.calculate_lighting(self)
+            if color_with_shading is not None:
+                # Do not draw empty polygons (with no color)
+                pygame.draw.polygon(screen, color_with_shading, polygon_points)
             if show_edges:
                 pygame.draw.polygon(screen, self.edges_color, polygon_points, 1)
         except Exception as e:
-            print("[Warring] Polygon can't we draw. Error body: ", e)
+            print("[Warring] Polygon can't be drawn. Error body: ", e)
 
     def get_z_cords(self):
         """
-        This function will return Z coordinates of each triangle point
+        This function will return Z coordinates of each polygon point
         :return:
         """
         return [node[2] for node in self.nodes]
