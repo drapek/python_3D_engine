@@ -74,3 +74,6 @@ def keyboard_controller(scene):
     if pressed[pygame.K_o]:
         settings.sub_triangs_line_visible = not settings.sub_triangs_line_visible
 
+    if pressed[pygame.K_i]:
+        scene.light_source.actual_material.next()
+

@@ -46,7 +46,7 @@ python src/main.py
 
 *dodatkowe*
 * o - pokaż krawędzie pod-trójkątów tworzacych strukturę obiektu
-
+* i - przełącz pomiędzy rodzajami odbicia. (mocno odbijająca, pośrednia, matowa)
 
 
 ### Screenshots

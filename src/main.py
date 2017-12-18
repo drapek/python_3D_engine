@@ -17,7 +17,7 @@ def main():
         screen.fill(settings.background_color)
         scene.draw_scene_in_2d(screen)  # Translate scene coordinates to camera coordinates, and project it
         pygame.display.flip()
-        pygame.time.wait(10)  # give the CPU to the other programs too! :)
+        pygame.time.wait(1)  # give the CPU to the other programs too! :)
 
 
 def build_scene():
