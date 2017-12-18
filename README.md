@@ -38,8 +38,15 @@ python src/main.py
 * m - zoom in
 * n - zoom out
 
+*przemieszczanie źródła światła*
+* SHIFT + w - obróć światło względem osi Y w górę
+* SHIFT + s - obróć światło względem osi Y w dół
+* SHIFT + a - obróć światło względem osi X w lewo
+* SHIFT + d - obróć światło względem osi X w prawo
+
 *dodatkowe*
 * o - pokaż krawędzie pod-trójkątów tworzacych strukturę obiektu
+
 
 
 ### Screenshots

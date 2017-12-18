@@ -55,6 +55,8 @@ def rotate_z(obj, angle):
 
 
 def rotate_one_point_x(point, angle):
+    if len(point) < 4:
+        point.append(1)
     rotate_matrix = [[1, 0, 0, 0],
                      [0, math.cos(angle), -math.sin(angle), 0],
                      [0, math.sin(angle), math.cos(angle), 0],
@@ -69,7 +71,7 @@ def rotate_one_point_y(point, angle):
                      [0, 1, 0, 0],
                      [-math.sin(angle), 0, math.cos(angle), 0],
                      [0, 0, 0, 1]]
-    return np.matmul(rotate_matrix, point)[:3]
+    return np.matmul(rotate_matrix, point)
 
 
 def multiply_object_by_matrix(obj, matrix):

@@ -12,16 +12,16 @@ def keyboard_controller(scene):
     pressed = pygame.key.get_pressed()
 
     # moving on scene
-    if pressed[pygame.K_w]:
+    if pressed[pygame.K_w] and not pressed[pygame.K_RSHIFT]:
         scene.move_objects_on_scene([0, 0, -settings.move_step])
 
-    if pressed[pygame.K_s]:
+    if pressed[pygame.K_s] and not pressed[pygame.K_RSHIFT]:
         scene.move_objects_on_scene([0, 0, settings.move_step])
 
-    if pressed[pygame.K_a]:
+    if pressed[pygame.K_a] and not pressed[pygame.K_RSHIFT]:
         scene.move_objects_on_scene([settings.move_step, 0, 0])
 
-    if pressed[pygame.K_d]:
+    if pressed[pygame.K_d] and not pressed[pygame.K_RSHIFT]:
         scene.move_objects_on_scene([-settings.move_step, 0, 0])
 
     # flying mode - go up and down
@@ -58,16 +58,16 @@ def keyboard_controller(scene):
         scene.change_camera_zoom(-settings.camera_zoom_step)
 
     # Change position of the light
-    if pressed[pygame.K_w] and pressed[pygame.KMOD_SHIFT]:
+    if pressed[pygame.K_w] and pressed[pygame.K_RSHIFT]:
         scene.rotate_light_x(settings.light_tilt_angle_step)
 
-    if pressed[pygame.K_s] and pressed[pygame.KMOD_SHIFT]:
+    if pressed[pygame.K_s] and pressed[pygame.K_RSHIFT]:
         scene.rotate_light_x(-settings.light_tilt_angle_step)
 
-    if pressed[pygame.K_a] and pressed[pygame.KMOD_SHIFT]:
+    if pressed[pygame.K_a] and pressed[pygame.K_RSHIFT]:
         scene.rotate_light_y(settings.light_tilt_angle_step)
 
-    if pressed[pygame.K_d] and pressed[pygame.KMOD_SHIFT]:
+    if pressed[pygame.K_d] and pressed[pygame.K_RSHIFT]:
         scene.rotate_light_y(-settings.light_tilt_angle_step)
 
     # Show / Hide the triangular boundary lines

@@ -22,7 +22,6 @@ class Scene:
         project it to 2D image.
         :return:
         """
-        # print('debug')  # TODO debug only
         # sort the triangles by it's 'z' coordinate in descending order. (Painter's algorithm)
         self.available_basic_polygons.sort(key=lambda x: np.mean(x.get_z_cords()), reverse=True)
         for polygon in self.available_basic_polygons:
@@ -49,7 +48,7 @@ class Scene:
         self.observer_to_canvas_dist += step
 
     def rotate_light_x(self, angle):
-        rotate_one_point_x(self.light_source.position, angle)
+        self.light_source.position = rotate_one_point_x(self.light_source.position, angle)
 
     def rotate_light_y(self, angle):
-        rotate_one_point_y(self.light_source.position, angle)
+        self.light_source.position = rotate_one_point_y(self.light_source.position, angle)

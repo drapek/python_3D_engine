@@ -7,9 +7,9 @@ class Light:
     max_light = None
     light_range = None
 
-    def __init__(self, light_position=None, min_light=0.1, max_light=0.9):
+    def __init__(self, light_position=None, min_light=0.1, max_light=0.7):
         if light_position is None:
-            light_position = [-1, 1, -1]
+            light_position = [-0.62, 0.12, -1.52]
 
         self.position = light_position
         self.min_light = min_light
@@ -25,7 +25,7 @@ class Light:
             # Only draw faces that face us
             if towards_us > 0:
                 normal /= np.linalg.norm(normal)
-                theta = np.dot(normal, self.position)
+                theta = np.dot(normal, self.position[:3])
 
                 if theta < 0:
                     shade = self.min_light * np.array(polygon.color)
